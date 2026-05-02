@@ -35,6 +35,15 @@ export async function fetchTopClubs(limit) {
   }
 }
 
+export async function fetchClubsTopPlayers(clubId) {
+  try {
+    const response = await apiClient.get( `/clubs/top-players/${clubId}`);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching top clubs', error);
+  }
+}
+
 export async function removeClub(clubId) {
   try {
     await apiClient.delete(`/clubs/${clubId}`);

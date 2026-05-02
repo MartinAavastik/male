@@ -269,6 +269,10 @@ const SELECT_TOP_CLUBS = `
     LIMIT $1
 `;
 
+const SELECT_TOP_CLUB_PLAYERS = `
+    SELECT * FROM f_klubiparimad($1::integer)
+`;
+
 function getAddOrUpdateClubQuery(isUpdate) {
     if (isUpdate) {
         return `
